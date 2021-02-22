@@ -1,1 +1,8 @@
 /* TODO Add site wide styles */
+
+body {
+    background-image: url('./images/green-chameleon-s9CC2SKySJM-unsplash.jpg');
+    background-size: cover;
+    background-position: absolute;
+    background-repeat: no-repeat;
+}

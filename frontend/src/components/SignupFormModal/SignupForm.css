@@ -1,0 +1,16 @@
+button.signup-button{
+    height: 100%;
+    width: 100%;
+    border-style: none;
+    font-size: 1.2rem;
+    background-color: #ff8a47;
+    color: white;
+}
+
+button:hover{
+    font-weight: bold;
+}
+
+button:focus {
+    outline: none;
+}

@@ -1,7 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, NavMenu } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal'
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -15,34 +17,44 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
-                <NavLink to="/login">Log In</NavLink>
-                <NavLink to="/signup">Sign Up</NavLink>
+                <div className='login'>
+                    {/* <NavLink to="/login">Log In</NavLink> */}
+                    <LoginFormModal />
+                </div>
+                <div className='signup'>
+                    {/* <NavLink to="/signup">Sign Up</NavLink> */}
+                    <SignupFormModal />
+                </div>
             </>
         );
     }
 
     return (
         <div className='navbar'>
-            <div className='nabvabr-logo-container'>
-                <div className='navbar-logo'></div>
+            <div className='navbar-logo-container'>
+                <div className='logo'>
+                    <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK8pKoosSkAmixoC97yyNUeA8ruA7gw3Vlpw&usqp=CAU'></img>
+                </div>
+                <NavLink className='home-link' exact to="/">WizzQuiz</NavLink>
             </div>
-            <div classname='navbar-items'>
-                <div classname='navbar-item-search-flashcards'><NavLink exact to="/">Home</NavLink></div>
+            <div className='navbar-links'>
+                <div className='my-decks'>
+                    My Decks
+                </div>
+                <div className='search-decks'>Search Decks</div>
             </div>
-            <div classname='navbar-items'>
-                <div classname='navbar-item-make-flashcards'>Make Flashcards</div>
-            </div>
-            <div classname='navbar-items'>
-                <div classname='navbar-item-how-it-works'>How does it Work?</div>
-            </div>
-            <div classname='navbar-items'>
-                <div classname='navbar-item-search-flashcards'>Search Flashcards</div>
-            </div>
-            <li>
-
+            <div className='session-links'>
                 {isLoaded && sessionLinks}
-            </li>
+            </div>
         </div>
+
+
+        // <ul>
+        //     <li>
+        //         <NavLink exact to="/">WizzQuiz</NavLink>
+        //         {isLoaded && sessionLinks}
+        //     </li>
+        // </ul>
     );
 }
 

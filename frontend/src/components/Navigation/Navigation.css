@@ -30,19 +30,24 @@
     width: 20%;
 }
 
+.home-logo {
+    display: flex;
+    align-items: center;
+}
+
 .home-link {
     width: auto;
     text-decoration: none;
     color: black;   
     font-family: sans-serif;
     font-size: 1.3rem;
-    align-items: flex-start;
+    width: 80%;
 }
-.logo{
+.logo img{
     display: flex;
     box-sizing: border-box;
-    width: 20%;
-    height: 50%;
+    height: 50px;
+    object-fit: contain;
     justify-content: center;
 }
 

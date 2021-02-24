@@ -18,11 +18,9 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <div className='login'>
-                    {/* <NavLink to="/login">Log In</NavLink> */}
                     <LoginFormModal />
                 </div>
                 <div className='signup'>
-                    {/* <NavLink to="/signup">Sign Up</NavLink> */}
                     <SignupFormModal />
                 </div>
             </>
@@ -32,10 +30,12 @@ function Navigation({ isLoaded }) {
     return (
         <div className='navbar'>
             <div className='navbar-logo-container'>
-                <div className='logo'>
-                    <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK8pKoosSkAmixoC97yyNUeA8ruA7gw3Vlpw&usqp=CAU'></img>
+                <div className='home-logo'>
+                    <div className='logo'>
+                        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK8pKoosSkAmixoC97yyNUeA8ruA7gw3Vlpw&usqp=CAU'></img>
+                    </div>
+                    <NavLink className='home-link' exact to="/">WizzQuiz</NavLink>
                 </div>
-                <NavLink className='home-link' exact to="/">WizzQuiz</NavLink>
             </div>
             <div className='navbar-links'>
                 <div className='my-decks'>

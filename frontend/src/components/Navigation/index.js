@@ -41,20 +41,14 @@ function Navigation({ isLoaded }) {
                 <div className='my-decks'>
                     My Decks
                 </div>
-                <div className='search-decks'>Search Decks</div>
+                <div className='search-decks'>
+                    <NavLink className='search-link' to='/decks'>Search Decks</NavLink>
+                </div>
             </div>
             <div className='session-links'>
                 {isLoaded && sessionLinks}
             </div>
         </div>
-
-
-        // <ul>
-        //     <li>
-        //         <NavLink exact to="/">WizzQuiz</NavLink>
-        //         {isLoaded && sessionLinks}
-        //     </li>
-        // </ul>
     );
 }
 

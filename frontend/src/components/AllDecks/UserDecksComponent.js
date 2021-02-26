@@ -37,9 +37,12 @@ const GetUserDecks = () => {
 
             </div>
             <div className='deck-display'>
-                <div className='search-title'>
-                    {`${sessionUser.username}'s Decks`}
-                </div>
+                {sessionUser &&
+                    <div className='search-title'>
+                        {`${sessionUser.username}'s Decks`}
+                    </div>
+
+                }
                 {Object.values(decks).map((deck) => {
                     return (
                         <IndividualDeck key={deck.id} deck={deck} user={sessionUser}>

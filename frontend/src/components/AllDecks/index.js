@@ -1,3 +1,4 @@
-import AllDecksComponent from "./AllDecks";
+import AllDecksComponent from "./AllDecksComponent";
+import UserDecksComponent from './UserDecksComponent'
 
-export default AllDecksComponent;
+export { UserDecksComponent, AllDecksComponent };

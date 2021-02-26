@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getDecksThunk } from '../../store/decks';
 import IndividualDeck from "./IndividualDeck";
-import DeckForm from './CreateDeckComponent'
 import './AllDecks.css'
+import SearchForm from './SearchDecksComponent';
 
 const GetAllDecks = () => {
     const sessionUser = useSelector(state => state.session.user);
@@ -13,7 +13,7 @@ const GetAllDecks = () => {
     useEffect(() => {
 
         const getAllDecks = async () => {
-            console.log('inside getUserDecks')
+            console.log('inside getAllDecks')
             try {
                 const decks = await dispatch(getDecksThunk())
                 console.log(decks)
@@ -29,16 +29,16 @@ const GetAllDecks = () => {
         <div className='browse-decks'>
             <div className='left-sidebar'>
                 <div className='search-bar'>
-                    Add New Deck
+                    Search Decks
                 </div>
                 <div className='deck-form'>
-                    <DeckForm />
+                    <SearchForm />
                 </div>
 
             </div>
             <div className='deck-display'>
                 <div className='search-title'>
-                    {`${sessionUser.username}'s Decks`}
+                    {`Explore New Decks`}
                 </div>
                 {Object.values(decks).map((deck) => {
                     return (

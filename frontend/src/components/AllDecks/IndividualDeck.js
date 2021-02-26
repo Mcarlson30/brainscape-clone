@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const IndividualDeck = ({ deck }) => {
+const IndividualDeck = ({ deck, user }) => {
     return (
         <div className='IndividualDeckComponent'>
             <NavLink

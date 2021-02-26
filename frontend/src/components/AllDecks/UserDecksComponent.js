@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getDecksThunk } from '../../store/decks';
+import { getUserDecksThunk } from '../../store/decks';
 import IndividualDeck from "./IndividualDeck";
 import DeckForm from './CreateDeckComponent'
 import './AllDecks.css'
@@ -15,7 +15,7 @@ const GetUserDecks = () => {
         const getAllDecks = async () => {
             console.log('inside getUserDecks')
             try {
-                const decks = await dispatch(getDecksThunk())
+                const decks = await dispatch(getUserDecksThunk(sessionUser))
                 console.log(decks)
             }
             catch (e) {
@@ -42,7 +42,7 @@ const GetUserDecks = () => {
                 </div>
                 {Object.values(decks).map((deck) => {
                     return (
-                        <IndividualDeck key={deck.id} deck={deck}>
+                        <IndividualDeck key={deck.id} deck={deck} user={sessionUser}>
 
                         </IndividualDeck>
                     )

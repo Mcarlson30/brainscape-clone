@@ -22,7 +22,7 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path='/decks'>
+          <Route exact path='/decks'>
             <GetAllDecks></GetAllDecks>
           </Route>
           <Route path='/decks/user'>

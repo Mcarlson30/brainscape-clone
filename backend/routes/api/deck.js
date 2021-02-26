@@ -10,8 +10,9 @@ router.get('', asyncHandler(async function (req, res) {
     return res.json(decks);
 }))
 
-router.get('user', asyncHandler(async (req, res) => {
+router.get('/user', asyncHandler(async (req, res) => {
     const { user } = req.body;
+    console.log(req.body)
     const decks = await Deck.findAll({
         where: {
             userId: user.id
@@ -26,6 +27,7 @@ router.post('', asyncHandler(async (req, res) => {
         userId,
         name
     })
+    console.log(deck, 'new deck created')
     res.json({ deck })
 }))
 

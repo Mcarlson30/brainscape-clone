@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { createDeckThunk } from '../../store/decks';
+import { addDeck } from '../../store/decks';
 import { useSelector, useDispatch } from 'react-redux';
 
-function DeckForm() {
+function SearchForm() {
     const sessionUser = useSelector(state => state.session.user);
     const [name, setName] = useState('');
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function DeckForm() {
             userId: sessionUser.id
         }
 
-        dispatch(createDeckThunk(deck));
+        dispatch(addDeck(deck));
         setName('')
     }
     return (
@@ -24,11 +24,11 @@ function DeckForm() {
                 type='text'
                 value={name}
                 onChange={e => setName(e.target.value)}
-                placeholder='Enter deck name' />
+                placeholder='Search Name' />
 
-            <input type='submit' value='Add' className='add-deck-button' />
+            <input type='submit' value='Search' className='add-deck-button' />
         </form>
     )
 }
 
-export default DeckForm;
+export default SearchForm;

@@ -39,10 +39,10 @@ function Navigation({ isLoaded }) {
             </div>
             <div className='navbar-links'>
                 <div className='my-decks'>
-                    My Decks
+                    <NavLink className='search-link' to='/decks'>My Decks</NavLink>
                 </div>
                 <div className='search-decks'>
-                    <NavLink className='search-link' to='/decks'>Search Decks</NavLink>
+                    <NavLink className='search-link' to='/decks/user'>Search Decks</NavLink>
                 </div>
             </div>
             <div className='session-links'>

@@ -1,37 +1,40 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Decks', {
+    return queryInterface.createTable('Cards', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        type: Sequelize.INTEGER
-      },
-      name: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      categoryId: {
+      deckId: {
         type: Sequelize.INTEGER,
-        AllowNull: false,
+      },
+      question: {
+        type: Sequelize.STRING(255),
+        allowNull: false
+      },
+      answer: {
+        type: Sequelize.STRING(255),
+        allowNull: false
+      },
+      rating: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now'),
+        defaultValue: new Date(),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now'),
+        defaultValue: new Date(),
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Decks');
+    return queryInterface.dropTable('Cards');
   }
 };

@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import * as sessionActions from './store/session'
 import Navigation from './components/Navigation';
-import AllDecks from './components/AllDecks/AllDecks';
+// import AllDecks from './components/AllDecks/AllDecks';
+import GetAllDecks from './components/AllDecks/AllDecksComponent'
+import GetUserDecks from './components/AllDecks/UserDecksComponent'
 // import MyDecks from './components/MyDecks';
 // import Cards from './components/Cards';
 
@@ -21,7 +23,10 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path='/decks'>
-            <AllDecks></AllDecks>
+            <GetAllDecks></GetAllDecks>
+          </Route>
+          <Route path='/decks/user'>
+            <GetUserDecks></GetUserDecks>
           </Route>
         </Switch>
       )}

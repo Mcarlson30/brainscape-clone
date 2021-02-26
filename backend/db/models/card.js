@@ -1,17 +1,19 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Deck = sequelize.define('Deck', {
-    userId: {
+  const Card = sequelize.define('Card', {
+    deckId: {
       type: DataTypes.INTEGER,
-      allowNull: false
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
+    question: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
     },
-    categoryId: {
+    answer: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+    rating: {
       type: DataTypes.INTEGER,
-      AllowNull: false,
     },
     createdAt: {
       allowNull: false,
@@ -24,12 +26,8 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: new Date(),
     },
   }, {});
-
-
-
-  Deck.associate = function (models) {
-    // Deck.hasMany(models.Card, { foreignKey: 'deckId' })
-    // Deck.belongsTo(models.Category, { foreignKey: 'Id' })
+  Card.associate = function (models) {
+    Card.belongsTo(models.Deck, { foreignKey: "deckId" })
   };
-  return Deck;
+  return Card;
 };

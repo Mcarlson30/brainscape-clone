@@ -1,7 +1,17 @@
 .browse-decks{
-    margin-top: 5em;
+    margin-top: 10em;
+    margin-left: 10vw;
     display: flex;
-    width: 100vw;
+    width: 80vw;
+    height: 70vh;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+input:focus {
+    outline: none;
 }
 
 .navbar{
@@ -9,18 +19,19 @@
 }
 
 .left-sidebar {
-    height: 100vw;
+    height: 70vh;
     width: 30vw;
     background-color: white;
 }
 
 .deck-links{
+    display: flex;
 }
 
 .deck-display{
-    width: 70vw;
+    width: 70%;
     background-color: #F2F2F2;
-    height: 100vw;
+    height: auto;
     list-style: none;
     line-height: 2;
     font-size: 18px;
@@ -28,6 +39,7 @@
     column-count: 1;
     column-gap: 20px;
     padding: 20px;
+    overflow: scroll;
 }
 
 .single-deck-link{
@@ -43,8 +55,84 @@ padding: 10px;
     background-color: #ff8a47;
 }
 
-.search-title h1{
+.search-title{
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 125%;  
+    width: 100%;
+    overflow: hidden;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+
+.list-categories {
+    display: flex;
+    flex-direction: column;
+    
+}
+.add-deck-form {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+}
+
+.add-deck-input{
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom: 4px solid #eee;
+    width: 90%;
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 0;
+    height: 36px;
+    z-index: 10;
+}
+
+.add-deck-input::placeholder{
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 600;
+  left: 0;
+  position: absolute;
+  top: 8px;
+  z-index: 5;
+}
+
+.add-deck-button {
+  justify-content: center;
+  height: 36px;
+  border: none;
+  color: #fff;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 33px;
+  align-items: center;
+  background-color: #cecece;
+  width: 60%;
+  outline-style: none;
+}
+
+.deck-form{
+    width: 100%;
+    margin-top: 3vw;
+    height: 3vw;
+}
+
+.search-bar {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 125%;  
+    width: 100%;
+    overflow: hidden;
+    font-size: 40px;
+    font-family: sans-serif;
+    padding: 10px;
+    background-color: #ff8a47;
+    color: white;
 }
 
 .IndividualDeckComponent {

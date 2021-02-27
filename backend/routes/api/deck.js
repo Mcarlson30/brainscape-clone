@@ -14,10 +14,17 @@ router.get('/:userId', asyncHandler(async function (req, res) {
     return res.json(decks);
 }))
 
-router.get('/user/:userId', asyncHandler(async (req, res) => {
-    console.log('************', req.params)
+router.get('/cards', asyncHandler(async function (req, res) {
+    console.log('******', req.params)
     const { userId } = req.params
-    console.log('*************', userId)
+    const cards = await Card.findAll({})
+    return res.json({ cards });
+}))
+
+router.get('/user/:userId', asyncHandler(async (req, res) => {
+    // console.log('************', req.params)
+    const { userId } = req.params
+    // console.log('*************', userId)
     const decks = await Deck.findAll({
         where: {
             userId

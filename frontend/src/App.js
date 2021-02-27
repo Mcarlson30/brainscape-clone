@@ -6,6 +6,7 @@ import Navigation from './components/Navigation';
 // import AllDecks from './components/AllDecks/AllDecks';
 import GetAllDecks from './components/AllDecks/AllDecksComponent'
 import GetUserDecks from './components/AllDecks/UserDecksComponent'
+import GetAllCards from './components/AllDecks/AllCardsComponent'
 // import MyDecks from './components/MyDecks';
 // import Cards from './components/Cards';
 
@@ -25,8 +26,11 @@ function App() {
           <Route exact path='/decks'>
             <GetAllDecks></GetAllDecks>
           </Route>
-          <Route path='/decks/user'>
+          <Route exact path='/decks/user'>
             <GetUserDecks></GetUserDecks>
+          </Route>
+          <Route exact path='/decks/cards'>
+            <GetAllCards></GetAllCards>
           </Route>
         </Switch>
       )}

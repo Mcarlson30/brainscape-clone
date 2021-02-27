@@ -2,15 +2,16 @@ import { csrfFetch } from './csrf'
 
 const GET_DECKS = 'decks/GET_DECKS'
 const ADD_DECK = 'decks/ADD_DECK'
+const GET_CARDS = 'decks/GET_CARDS'
 
 export const getDecks = (decksObj) => ({
     type: GET_DECKS,
     payload: decksObj,
 });
 
-export const getCategory = (decksObj) => ({
-    type: GET_DECKS,
-    payload: decksObj,
+export const getCards = (cardsObj) => ({
+    type: GET_CARDS,
+    payload: cardsObj,
 });
 
 export const addDeck = ({ deck }) => {
@@ -39,6 +40,17 @@ export const getUserDecksThunk = (user) => async (dispatch) => {
     return list;
 }
 
+export const getCardsThunk = () => async (dispatch) => {
+    console.log('getcardsThunk')
+    const res = await fetch(`/api/decks/cards`);
+    console.log('response', res)
+    if (!res.ok) throw res;
+    const list = await res.json()
+    dispatch(getCards(list))
+
+    return list;
+}
+
 export const createDeckThunk = (deck) => async (dispatch) => {
     try {
         const response = await csrfFetch('/api/decks', {
@@ -54,7 +66,8 @@ export const createDeckThunk = (deck) => async (dispatch) => {
 }
 
 const initialState = {
-    deckList: {}
+    deckList: {},
+    cardList: {}
 }
 
 const decksArray = (decksList) => {
@@ -72,6 +85,11 @@ const deckReducer = (state = initialState, action) => {
             return {
                 ...state,
                 deckList: decksArray(action.payload),
+            }
+        case GET_CARDS:
+            return {
+                ...state,
+                cardList: decksArray(action.payload),
             }
         case ADD_DECK:
             newState = Object.assign({}, state)

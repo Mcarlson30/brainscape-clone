@@ -5,11 +5,14 @@ const IndividualDeck = ({ deck, user }) => {
         <div className='IndividualDeckComponent'>
             <NavLink
                 className="single-deck-link"
-                to={`/decks/${deck.id}`}
+                to={{
+                    pathname: `/decks/cards`,
+                    deckProp: { deckId: deck.id, deckName: deck.name }
+                }}
             >
                 {deck.name}
             </NavLink>
-        </div>
+        </div >
     );
 };
 

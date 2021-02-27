@@ -10,12 +10,13 @@ router.get('', asyncHandler(async function (req, res) {
     return res.json(decks);
 }))
 
-router.get('/user', asyncHandler(async (req, res) => {
-    const { user } = req.body;
-    console.log(req.body)
+router.get('/user/:userId', asyncHandler(async (req, res) => {
+    console.log('************', req.params)
+    const { userId } = req.params
+    console.log('*************', userId)
     const decks = await Deck.findAll({
         where: {
-            userId: user.id
+            userId
         }
     })
     return res.json(decks);

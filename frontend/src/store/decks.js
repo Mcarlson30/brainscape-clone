@@ -32,10 +32,10 @@ export const getDecksThunk = () => async (dispatch) => {
 }
 
 export const getUserDecksThunk = (user) => async (dispatch) => {
-    const res = await fetch('/api/decks/user');
+    console.log("getUserDeckThunk")
+    const res = await fetch(`/api/decks/user/${user.id}`);
     if (!res.ok) throw res;
     const list = await res.json()
-    console.log("getUserDeckThunk", list)
     dispatch(getDecks(list))
 
     return list;

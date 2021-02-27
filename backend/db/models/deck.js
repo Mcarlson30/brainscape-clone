@@ -29,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
 
   Deck.associate = function (models) {
     // Deck.hasMany(models.Card, { foreignKey: 'deckId' })
-    // Deck.belongsTo(models.Category, { foreignKey: 'Id' })
   };
   return Deck;
 };

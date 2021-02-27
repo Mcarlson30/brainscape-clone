@@ -23,7 +23,7 @@ const GetUserDecks = () => {
             }
         }
         getAllDecks();
-    }, [dispatch])
+    }, [dispatch, sessionUser])
 
     return (
         <div className='browse-decks'>

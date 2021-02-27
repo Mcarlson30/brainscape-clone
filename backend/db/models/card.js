@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   Card.associate = function (models) {
-    Card.belongsTo(models.Deck, { foreignKey: "deckId" })
+    // Card.belongsTo(models.Deck, { foreignKey: "deckId" })
   };
   return Card;
 };

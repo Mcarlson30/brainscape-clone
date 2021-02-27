@@ -86,7 +86,7 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.associate = function (models) {
-    User.hasMany(models.Deck, { foreignKey: 'userId' })
+    // User.hasMany(models.Deck, { foreignKey: 'userId' })
   };
   return User;
 };

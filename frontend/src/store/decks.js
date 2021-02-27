@@ -21,18 +21,16 @@ export const addDeck = ({ deck }) => {
     }
 }
 
-export const getDecksThunk = () => async (dispatch) => {
-    const res = await fetch('/api/decks');
+export const getDecksThunk = (user) => async (dispatch) => {
+    const res = await fetch(`/api/decks/${user.id}`);
     if (!res.ok) throw res;
     const list = await res.json()
-    console.log("getDeckThunk", list)
     dispatch(getDecks(list))
 
     return list;
 }
 
 export const getUserDecksThunk = (user) => async (dispatch) => {
-    console.log("getUserDeckThunk")
     const res = await fetch(`/api/decks/user/${user.id}`);
     if (!res.ok) throw res;
     const list = await res.json()
@@ -41,24 +39,12 @@ export const getUserDecksThunk = (user) => async (dispatch) => {
     return list;
 }
 
-export const getCategoryThunk = () => async (dispatch) => {
-    const res = await fetch('/api/decks/category');
-    if (!res.ok) throw res;
-    const categoryList = await res.json()
-    console.log("getDeckThunk", categoryList)
-    dispatch(getDecks(categoryList))
-
-    return categoryList;
-}
-
 export const createDeckThunk = (deck) => async (dispatch) => {
-    console.log(deck, 'Deck')
     try {
         const response = await csrfFetch('/api/decks', {
             method: 'POST',
             body: JSON.stringify(deck)
         });
-
         dispatch(addDeck(response.data));
         return response.data;
     }

@@ -4,9 +4,13 @@ const router = express.Router();
 const { Deck, Category } = require('../../db/models')
 
 //get all decks
-router.get('', asyncHandler(async function (req, res) {
-    const decks = await Deck.findAll(
-    )
+router.get('/:userId', asyncHandler(async function (req, res) {
+    const { userId } = req.params
+    const decks = await Deck.findAll({
+        where: {
+            userId: 0
+        }
+    })
     return res.json(decks);
 }))
 

@@ -15,7 +15,7 @@ const GetAllDecks = () => {
         const getAllDecks = async () => {
             console.log('inside getAllDecks')
             try {
-                const decks = await dispatch(getDecksThunk())
+                const decks = await dispatch(getDecksThunk(sessionUser))
                 console.log(decks)
             }
             catch (e) {
@@ -23,7 +23,7 @@ const GetAllDecks = () => {
             }
         }
         getAllDecks();
-    }, [dispatch])
+    }, [dispatch, sessionUser])
 
     return (
         <div className='browse-decks'>

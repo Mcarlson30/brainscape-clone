@@ -5,23 +5,23 @@ import IndividualCard from "./IndividualDeck";
 import './AllDecks.css'
 import SearchForm from './SearchDecksComponent';
 import { useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 const GetAllCards = () => {
     const location = useLocation()
-    // const sessionUser = useSelector(state => state.session.user);
-    // const decks = useSelector(state => state.decks.deckList)
     const cards = useSelector(state => state.decks.cardList)
     const deckId = location.deckProp.deckId
     const deckName = location.deckProp.deckName
     const dispatch = useDispatch();
     console.log('deckId', deckId)
     console.log('deckName', deckName)
+
     useEffect(() => {
 
         const getAllCards = async () => {
             console.log('inside try')
             try {
-                const cards = await dispatch(getCardsThunk())
+                const cards = await dispatch(getCardsThunk(deckId))
                 console.log(cards)
             }
             catch (e) {
@@ -29,7 +29,7 @@ const GetAllCards = () => {
             }
         }
         getAllCards();
-    }, [dispatch])
+    }, [dispatch, deckId])
 
     return (
         <div className='browse-decks'>
@@ -46,13 +46,22 @@ const GetAllCards = () => {
                 <div className='search-title'>
                     {`${deckName} Cards`}
                 </div>
-                {/* {Object.values(cards).map((card) => {
+                {Object.values(cards).map((card) => {
                     return (
-                        <IndividualCard key={card.id} deck={card}>
-
-                        </IndividualCard>
+                        <div className='IndividualDeckComponent'>
+                            <NavLink
+                                className="single-deck-link"
+                                to={{
+                                    pathname: `/cards`,
+                                    deckProp: { deckId: card.id }
+                                }}
+                            >
+                                Question: {card.question}?&#10;
+                                Answer: {card.answer}
+                            </NavLink>
+                        </div >
                     )
-                })} */}
+                })}
 
             </div>
         </div>

@@ -1,7 +1,7 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const router = express.Router();
-const { Deck, Category } = require('../../db/models')
+const { Deck, Card } = require('../../db/models')
 
 //get all decks
 router.get('/:userId', asyncHandler(async function (req, res) {
@@ -14,15 +14,8 @@ router.get('/:userId', asyncHandler(async function (req, res) {
     return res.json(decks);
 }))
 
-router.get('/cards', asyncHandler(async function (req, res) {
-    console.log('******', req.params)
-    const { userId } = req.params
-    const cards = await Card.findAll({})
-    return res.json({ cards });
-}))
-
 router.get('/user/:userId', asyncHandler(async (req, res) => {
-    // console.log('************', req.params)
+    console.log('************', req.params)
     const { userId } = req.params
     // console.log('*************', userId)
     const decks = await Deck.findAll({

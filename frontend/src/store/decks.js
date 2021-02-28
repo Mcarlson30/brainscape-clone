@@ -40,10 +40,9 @@ export const getUserDecksThunk = (user) => async (dispatch) => {
     return list;
 }
 
-export const getCardsThunk = () => async (dispatch) => {
-    console.log('getcardsThunk')
-    const res = await fetch(`/api/decks/cards`);
-    console.log('response', res)
+export const getCardsThunk = (deckId) => async (dispatch) => {
+    console.log('getcardsThunk', deckId)
+    const res = await fetch(`/api/cards/${deckId}`);
     if (!res.ok) throw res;
     const list = await res.json()
     dispatch(getCards(list))

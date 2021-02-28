@@ -29,7 +29,7 @@ function App() {
           <Route exact path='/decks/user'>
             <GetUserDecks></GetUserDecks>
           </Route>
-          <Route exact path='/decks/cards'>
+          <Route path='/cards'>
             <GetAllCards></GetAllCards>
           </Route>
         </Switch>

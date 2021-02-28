@@ -6,7 +6,7 @@ const IndividualDeck = ({ deck, user }) => {
             <NavLink
                 className="single-deck-link"
                 to={{
-                    pathname: `/decks/cards`,
+                    pathname: `/cards`,
                     deckProp: { deckId: deck.id, deckName: deck.name }
                 }}
             >

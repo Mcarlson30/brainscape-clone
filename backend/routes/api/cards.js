@@ -17,4 +17,15 @@ router.get('/:deckId', asyncHandler(async function (req, res) {
     return res.json(cards);
 }))
 
+router.post('', asyncHandler(async (req, res) => {
+    const { question, answer, deckId } = req.body;
+    const card = await Card.create({
+        question,
+        answer,
+        deckId
+    })
+    console.log(card, 'new card created')
+    res.json({ card })
+}))
+
 module.exports = router;

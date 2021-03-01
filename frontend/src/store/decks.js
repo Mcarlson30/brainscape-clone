@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf'
 const GET_DECKS = 'decks/GET_DECKS'
 const ADD_DECK = 'decks/ADD_DECK'
 const GET_CARDS = 'decks/GET_CARDS'
+const ADD_CARD = 'decks/ADD_CARD'
 
 export const getDecks = (decksObj) => ({
     type: GET_DECKS,
@@ -19,6 +20,12 @@ export const addDeck = ({ deck }) => {
     return {
         type: ADD_DECK,
         payload: deck
+    }
+}
+export const addCard = ({ card }) => {
+    return {
+        type: ADD_CARD,
+        payload: card
     }
 }
 
@@ -64,6 +71,20 @@ export const createDeckThunk = (deck) => async (dispatch) => {
     }
 }
 
+export const createCardThunk = (card) => async (dispatch) => {
+    try {
+        const response = await csrfFetch('/api/cards', {
+            method: 'POST',
+            body: JSON.stringify(card)
+        });
+        dispatch(addDeck(response.data));
+        return response.data;
+    }
+    catch (e) {
+        console.error(e);
+    }
+}
+
 const initialState = {
     deckList: {},
     cardList: {}
@@ -93,6 +114,10 @@ const deckReducer = (state = initialState, action) => {
         case ADD_DECK:
             newState = Object.assign({}, state)
             newState.deckList[action.payload.id] = action.payload;
+            return newState;
+        case ADD_CARD:
+            newState = Object.assign({}, state)
+            newState.cardList[action.payload.id] = action.payload;
             return newState;
 
         default:

@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCardsThunk } from '../../store/decks';
-import IndividualCard from "./IndividualDeck";
 import './AllDecks.css'
-import SearchForm from './SearchDecksComponent';
+import CardForm from './AddCardComponent';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
 
 const GetAllCards = () => {
     const location = useLocation()
     const cards = useSelector(state => state.decks.cardList)
+    const sessionUser = useSelector(state => state.session.user);
     const deckId = location.deckProp.deckId
     const deckName = location.deckProp.deckName
     const dispatch = useDispatch();
@@ -35,10 +35,10 @@ const GetAllCards = () => {
         <div className='browse-decks'>
             <div className='left-sidebar'>
                 <div className='search-bar'>
-                    Add Cards
+                    Add Card
                 </div>
                 <div className='deck-form'>
-                    <SearchForm />
+                    <CardForm deckId={deckId} user={sessionUser} />
                 </div>
 
             </div>
@@ -56,7 +56,7 @@ const GetAllCards = () => {
                                     deckProp: { deckId: card.id }
                                 }}
                             >
-                                Question: {card.question}?&#10;
+                                Question: {card.question}&#10;
                                 Answer: {card.answer}
                             </NavLink>
                         </div >

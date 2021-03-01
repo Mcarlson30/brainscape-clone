@@ -40,14 +40,15 @@ const GetAllDecks = () => {
                 <div className='search-title'>
                     {`Explore New Decks`}
                 </div>
-                {Object.values(decks).map((deck) => {
-                    return (
-                        <IndividualDeck key={deck.id} deck={deck}>
+                <div className='deck-display-component'>
+                    {Object.values(decks).map((deck) => {
+                        return (
+                            <IndividualDeck key={deck.id} deck={deck}>
 
-                        </IndividualDeck>
-                    )
-                })}
-
+                            </IndividualDeck>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     );

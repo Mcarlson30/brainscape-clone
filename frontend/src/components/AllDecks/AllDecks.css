@@ -116,6 +116,25 @@ padding: 10px;
   outline-style: none;
 }
 
+.go-back-to-decks{
+    width: 60%;
+}
+
+.add-card-button {
+    justify-content: center;
+  height: 36px;
+  border: none;
+  color: #fff;
+  box-sizing: border-box;
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 33px;
+  align-items: center;
+  background-color: #cecece;
+  width: 100%%;
+  outline-style: none;
+}
+
 .deck-form{
     width: 100%;
     margin-top: 3vw;

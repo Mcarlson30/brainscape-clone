@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { createDeckThunk } from '../../store/decks';
 import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom'
 
 function DeckForm() {
     const sessionUser = useSelector(state => state.session.user);
     const [name, setName] = useState('');
+    const location = useLocation()
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {

@@ -33,6 +33,7 @@ function App() {
             <GetAllCards></GetAllCards>
           </Route>
         </Switch>
+
       )}
     </>
   );

@@ -4,7 +4,6 @@ import { getCardsThunk } from '../../store/decks';
 import './AllDecks.css'
 import CardForm from './AddCardComponent';
 import { useLocation } from 'react-router-dom';
-import { NavLink } from 'react-router-dom'
 
 const GetAllCards = () => {
     const location = useLocation()
@@ -49,22 +48,30 @@ const GetAllCards = () => {
                 {Object.values(cards).map((card) => {
                     return (
                         <div className='IndividualDeckComponent'>
-                            <NavLink
+                            <button
                                 className="single-deck-link"
-                                to={{
-                                    pathname: `/cards`,
-                                    deckProp: { deckId: card.id }
-                                }}
-                            >
-                                Question: {card.question}&#10;
-                                Answer: {card.answer}
-                            </NavLink>
+                                onClick={() => {
+                                    let el = document.getElementById(card.id);
+                                    console.log(el)
+                                    el.classList.toggle('blur-effect');
+                                }}>
+                                Question: {card.question}
+                            </button>
+                            <div className='question-answer'>
+                                <div className='answer-text'>Answer:</div>
+                                <div
+                                    className='card-answer-object blur-effect'
+                                    id={card.id}
+                                >
+                                    {card.answer}
+                                </div>
+                            </div>
                         </div >
                     )
                 })}
 
             </div>
-        </div>
+        </div >
     );
 };
 export default GetAllCards;

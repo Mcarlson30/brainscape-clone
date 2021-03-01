@@ -6,17 +6,23 @@ import './AllDecks.css'
 import SearchForm from './SearchDecksComponent';
 
 const GetAllDecks = () => {
-    const sessionUser = useSelector(state => state.session.user);
+    let sessionUser = useSelector(state => state.session.user);
     const decks = useSelector(state => state.decks.deckList)
     const dispatch = useDispatch();
-
+    const user = {
+        email: 'nouser@nouser.com',
+        id: 0
+    }
     useEffect(() => {
 
         const getAllDecks = async () => {
-            console.log('inside getAllDecks')
+            console.log('inside getAllDecks', sessionUser)
             try {
-                const decks = await dispatch(getDecksThunk(sessionUser))
-                console.log(decks)
+                if (sessionUser) {
+                    const decks = await dispatch(getDecksThunk(sessionUser))
+                } else {
+                    const decks = await dispatch(getDecksThunk(user))
+                }
             }
             catch (e) {
                 console.log(e)

@@ -29,9 +29,8 @@
 }
 
 #modal-content .modal-body {
-  display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
     height: 100%;
     width: 80%;
     padding-left: 10%;
@@ -96,8 +95,8 @@
   font-size: 16px;
   border-radius: 33px;
   align-items: center;
+  justify-content: center;
   background-color: #cecece;
   width: 60%;
-  padding-top: 15px;
   outline-style: none;
 }

@@ -17,11 +17,11 @@ export async function csrfFetch(url, options = {}) {
     // call the default window's fetch with the url and the options passed in
     const res = await window.fetch(url, options);
 
-    const contentType = res.headers.get("content-type");
-    if (contentType && contentType.includes("application/json")) {
-        const data = await res.json();
-        res.data = data;
-    }
+    // const contentType = res.headers.get("content-type");
+    // if (contentType && contentType.includes("application/json")) {
+    //     const data = await res.json();
+    //     res.data = data;
+    // }
 
     // if the response status code is 400 or above, then throw an error with the
     // error being the response

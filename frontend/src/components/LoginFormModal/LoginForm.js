@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginForm.css'
@@ -13,6 +13,17 @@ function LoginForm() {
         e.preventDefault();
         setErrors([]);
         return dispatch(sessionActions.login({ credential, password })).catch(
+            async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            }
+        );
+    };
+
+    const handleDemo = (e) => {
+        e.preventDefault();
+        setErrors([]);
+        return dispatch(sessionActions.login({ credential: 'demo@user.io', password: 'password' })).catch(
             async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
@@ -49,10 +60,20 @@ function LoginForm() {
                             placeholder='Password'
                         />
                     </div>
-                    <button type="submit">Log In</button>
+                    <div className='modal-login-button'>
+                        <button type="submit" className='modal-login-button-text'>Log In</button>
+                    </div>
+                </form>
+                <form onSubmit={handleDemo}>
+                    <div className='demo-button'>
+                        <button
+                            type='submit'
+                            className='modal-login-button-text-demo'
+                        >Demo</button>
+                    </div>
                 </form>
             </div>
-        </div>
+        </div >
     );
 }
 

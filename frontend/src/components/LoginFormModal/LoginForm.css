@@ -1,14 +1,32 @@
-button.log-button{
-    height: 100%;
-    width: 100%;
-    border-style: none;
-    font-size: 1.2rem;
+
+.modal-login-button{
+    align-items: center;
+    justify-content: center;
 }
 
-button:hover{
-    font-weight: bold;
+.modal-login-button-text {
+  height: 36px;
+  border: none;
+  color: #fff;
+  box-sizing: border-box;
+  font-weight: 400;
+  position: relative;
+  font-size: 16px;
+  border-radius: 33px;
+  background-color: #cecece;
+  width: 60%;
+  margin-top: 20%;
+  margin-left: 20%;
+  outline-style: none;
 }
 
-button:focus {
-    outline: none;
+.input-and-buttons{
+    margin-top: 50%;
 }
+
+.modal-login-button-text-demo {
+    align-items: center;
+    margin-top: 5%;
+    margin-left: 20%;
+}
+

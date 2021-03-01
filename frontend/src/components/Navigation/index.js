@@ -10,6 +10,14 @@ function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
 
     let sessionLinks;
+    let userDecks;
+    if (sessionUser) {
+        userDecks = (
+            <div className='my-decks'>
+                <NavLink className='search-link' to='/decks/user'>My Decks</NavLink>
+            </div>
+        )
+    }
     if (sessionUser) {
         sessionLinks = (
             <ProfileButton user={sessionUser} />
@@ -38,9 +46,7 @@ function Navigation({ isLoaded }) {
                 </div>
             </div>
             <div className='navbar-links'>
-                <div className='my-decks'>
-                    <NavLink className='search-link' to='/decks/user'>My Decks</NavLink>
-                </div>
+                {isLoaded && userDecks}
                 <div className='search-decks'>
                     <NavLink className='search-link' to='/decks'>Search Decks</NavLink>
                 </div>

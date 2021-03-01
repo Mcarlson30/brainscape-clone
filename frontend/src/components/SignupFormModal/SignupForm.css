@@ -14,3 +14,26 @@ button:hover{
 button:focus {
     outline: none;
 }
+
+.input-and-buttons-signup{
+    width: 90%;
+    margin-left: 5%;
+}
+
+.model-body{
+    height: auto;
+}
+
+li {
+  color: red;
+  text-align: center;
+  padding-top: 20px;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.modal-signup-button{
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 0;
+}

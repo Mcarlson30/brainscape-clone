@@ -1,3 +1,19 @@
+button{
+    height: 100%;
+    width: 100%;
+    border-style: none;
+    font-size: 1.2rem;
+    background-color: #fdf8f7;
+    color: black;
+}
+
+button:hover{
+    font-weight: bold;
+}
+
+button:focus {
+    outline: none;
+}
 
 .modal-login-button{
     align-items: center;
@@ -21,12 +37,26 @@
 }
 
 .input-and-buttons{
-    margin-top: 50%;
+    top: 50%
 }
 
 .modal-login-button-text-demo {
     align-items: center;
     margin-top: 5%;
     margin-left: 20%;
+}
+
+.demo-button {
+    padding-bottom: 20px;
+}
+
+ul{
+    text-align: center;
+    padding: 0;
+    list-style-position: inside;
+}
+
+li{
+    width: 100%;
 }
 

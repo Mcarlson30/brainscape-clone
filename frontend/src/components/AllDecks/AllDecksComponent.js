@@ -49,7 +49,7 @@ const GetAllDecks = () => {
                 <div className='deck-display-component'>
                     {Object.values(decks).map((deck) => {
                         return (
-                            <IndividualDeck key={deck.id} deck={deck}>
+                            <IndividualDeck key={deck.id} deck={deck} user={user}>
 
                             </IndividualDeck>
                         )

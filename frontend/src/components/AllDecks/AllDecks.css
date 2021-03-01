@@ -48,6 +48,13 @@ text-decoration: none;
 color: black;
 width: 100%;
 padding: 10px;
+display: flex;
+justify-content: space-between;
+}
+
+.save-deck{
+    align-items: flex-end;
+    height: 50%;
 }
 
 .single-deck-link:hover{
